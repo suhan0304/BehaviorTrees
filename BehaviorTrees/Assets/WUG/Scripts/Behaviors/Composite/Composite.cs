@@ -1,4 +1,3 @@
-
 using System.Linq;
 
 public abstract class Composite : Node 
