@@ -1,18 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using WUG.BehaviorTreeVisualizer;
 
-public class Node : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
+public abstract class Node : NodeBase {
+    // Keeps track of the number of times the node has been evaluated in a single 'run'.
+    public int EvalutionCount;
+
+    // Runs the login for the node
+    public virtual NodeStatus Run() {
+        //Runs the 'custom' logic
+        NodeStatus nodeStatus = OnRun();
+
+        // Increments the tracker for how many times the node has been evaluted this 'run'
+        EvalutionCount++;
         
+        // If the nodeStatus is not Running, then it is Success of Failure and can be Reset
+        if (nodeStatus != NodeStatus.Running) {
+            Reset();
+        }
+
+        // Return the StatusResult.
+        return nodeStatus;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void Reset() {
+        EvalutionCount = 0;
+        OnReset();
     }
-}
+
+    protected abstract NodeStatus OnRun();
+    protected abstract void OnReset();
+ }
