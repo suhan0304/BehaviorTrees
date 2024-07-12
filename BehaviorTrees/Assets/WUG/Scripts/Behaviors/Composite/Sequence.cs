@@ -28,4 +28,13 @@ public class Sequence : Composite
         // The child was a success but we still have more to do - so call this method again
         return childNodeStatus == NodeStatus.Success ? OnRun() : NodeStatus.Running;
     }
+
+    protected override void OnReset()
+    {
+        CurrentChildIndex = 0;
+
+        for (int i = 0; i < ChildNodes.Count; i++) {
+            (ChildNodes[i] as Node).Reset();
+        }
+    }
 }
