@@ -1,3 +1,5 @@
+using UnityEngine;
+using WUG.BehaviorTreeDemo;
 using WUG.BehaviorTreeVisualizer;
 
 public class AreItemsNearBy : Condition {
@@ -10,9 +12,29 @@ public class AreItemsNearBy : Condition {
 
     protected override void OnReset() { }
 
-    public override NodeStatus OnRun() 
+    protected override NodeStatus OnRun() 
     {
         // Check for references
-        if (GameMan)
+        if (GameManager.Instance == null || GameManager.Instance.NPC == null) {
+            StatusReason = "GameManager and/or NPC is null";
+            return NodeStatus.Failure;
+        }
+
+        // Get the closest item
+        GameObject item = GameManager.Instance.GetClosestItem();
+
+        // Cehck to see if something is close by
+        if (item == null) 
+        {
+            StatusReason = "No items near by";
+            return NodeStatus.Failure;
+        }
+        else if (Vector3.Distance(item.transform.position, GameManager.Instance.NPC.transform.position) > m_DistanceToCheck) 
+        {
+            StatusReason = $"No items within range of {m_DistanceToCheck} meters.";
+            return NodeStatus.Failure;
+        }
+
+        return NodeStatus.Success;
     }
 }
