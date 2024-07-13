@@ -4,6 +4,8 @@ public abstract class Node : NodeBase {
     // Keeps track of the number of times the node has been evaluated in a single 'run'.
     public int EvaluationCount;
 
+    private string m_LastStatusReason { get; set; } = "";
+
     // Runs the login for the node
     public virtual NodeStatus Run() {
         //Runs the 'custom' logic
@@ -35,6 +37,4 @@ public abstract class Node : NodeBase {
 
     protected abstract NodeStatus OnRun();
     protected abstract void OnReset();
-
-    private string m_LastStatusReason { get; set; } = "";
 }
