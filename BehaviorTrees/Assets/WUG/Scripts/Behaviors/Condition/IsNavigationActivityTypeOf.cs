@@ -1,18 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using WUG.BehaviorTreeDemo;
 
-public class IsNavigationActivityTypeOf : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+public class IsNavigationActivityTypeOf : Condition {
+    private NavigationActivity m_ActivityToCheckFor;
+
+    public IsNavigationActivityTypeOf(NavigationActivity activity) : base($"Is Navigation Activity {activity}?") {
+        m_ActivityToCheckFor = activity;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }
