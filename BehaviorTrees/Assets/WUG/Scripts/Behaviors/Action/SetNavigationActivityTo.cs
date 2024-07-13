@@ -15,6 +15,7 @@ public class SetNavigationActivityTo : Node
 
     protected override NodeStatus OnRun() 
     {
+        // Check for references
         if (GameManager.Instance == null || GameManager.Instance.NPC == null) {
             StatusReason = "GameManager and/or NPC is null";
             return NodeStatus.Failure;

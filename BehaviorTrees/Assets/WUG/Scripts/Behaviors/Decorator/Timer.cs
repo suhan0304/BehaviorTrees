@@ -22,7 +22,7 @@ public class Timer : Decorator {
         NodeStatus originalStatus = (ChildNodes[0] as Node).Run();
 
         // If this is the first eval, then the start time needs to be set up
-        if (EvalutionCount == 0) {
+        if (EvaluationCount == 0) {
             StatusReason = $"Starting timer for {m_TimeToWait}. Child Node status is : {originalStatus}";
             m_StartTime = m_UseFixedTime ? Time.fixedTime : Time.time;
         }
