@@ -9,6 +9,13 @@ public abstract class Node : NodeBase {
         //Runs the 'custom' logic
         NodeStatus nodeStatus = OnRun();
 
+        if (LastNodeStatus != nodeStatus || !m_LastStatusReason.Equals(StatusReason)) 
+        {
+            LastNodeStatus = nodeStatus;
+            m_LastStatusReason = StatusReason;
+            OnNodeStatusChanged(this);
+        }
+
         // Increments the tracker for how many times the node has been evaluted this 'run'
         EvaluationCount++;
         
@@ -28,4 +35,6 @@ public abstract class Node : NodeBase {
 
     protected abstract NodeStatus OnRun();
     protected abstract void OnReset();
- }
+
+    private string m_LastStatusReason { get; set; } = "";
+}
