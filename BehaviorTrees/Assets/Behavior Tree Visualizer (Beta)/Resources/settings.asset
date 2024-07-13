@@ -21,39 +21,39 @@ MonoBehaviour:
   FailureIcon: {fileID: 21300000, guid: a12f0f96f8cacf0408b24a9bb943d66b, type: 3}
   DefaultStyleProperties:
     Script: {fileID: 0}
-    TitleBarColor: {r: 0.09411765, g: 0.70980394, b: 0.9137255, a: 1}
+    TitleBarColor: {r: 0.07450981, g: 0.5686275, b: 0.7294118, a: 1}
     Icon: {fileID: 21300000, guid: b672344d83977ea4b92d823b96fa1425, type: 3}
     IsDecorator: 0
     InvertResult: 0
   MainStyleProperties:
   - Script: {fileID: 11500000, guid: fd0ffa68447ad2e4d99c75e24803deba, type: 3}
-    TitleBarColor: {r: 0.8980393, g: 0.91372555, b: 0.09411766, a: 1}
+    TitleBarColor: {r: 0.8000001, g: 0.5058824, b: 0, a: 1}
     Icon: {fileID: 21300000, guid: 4b0d0df25c6b3e74b84791a68af268a5, type: 3}
     IsDecorator: 0
     InvertResult: 0
   - Script: {fileID: 11500000, guid: fdaa40df22083e34eb08e7c516d70061, type: 3}
-    TitleBarColor: {r: 0.21960784, g: 0.21960784, b: 0.21960784, a: 1}
+    TitleBarColor: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 1}
     Icon: {fileID: 21300000, guid: 56c998e2f5df7684f8ecb19785c5b678, type: 3}
-    IsDecorator: 1
+    IsDecorator: 0
     InvertResult: 0
   OverrideStyleProperties:
   - Script: {fileID: 11500000, guid: 770bfd569486c4c4dbe76c727f2f5ad6, type: 3}
-    TitleBarColor: {r: 0.21960784, g: 0.21960784, b: 0.21960784, a: 1}
+    TitleBarColor: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 1}
     Icon: {fileID: 21300000, guid: caca494ba8dd66e4b9778df5ecae5910, type: 3}
-    IsDecorator: 1
+    IsDecorator: 0
     InvertResult: 0
   - Script: {fileID: 11500000, guid: 0feff7bd0b0b3844181c3be89d8c1564, type: 3}
-    TitleBarColor: {r: 0.21960784, g: 0.21960784, b: 0.21960784, a: 1}
+    TitleBarColor: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 1}
     Icon: {fileID: 21300000, guid: 314cb246bc81bf04cb7e73b250e47a68, type: 3}
-    IsDecorator: 1
-    InvertResult: 1
+    IsDecorator: 0
+    InvertResult: 0
   - Script: {fileID: 11500000, guid: 9a16bb9b8f568fd41bbaf35496a19b61, type: 3}
     TitleBarColor: {r: 0.9960785, g: 0, b: 0.4784314, a: 1}
-    Icon: {fileID: 21300000, guid: 8988c62742731474c966510270e6c45c, type: 3}
+    Icon: {fileID: 0}
     IsDecorator: 0
     InvertResult: 0
   - Script: {fileID: 11500000, guid: fb142934f6204994a901837317d31659, type: 3}
     TitleBarColor: {r: 0.9960785, g: 0, b: 0.4784314, a: 1}
-    Icon: {fileID: 21300000, guid: 28fe4a2dbaf436c43afef5207096676c, type: 3}
+    Icon: {fileID: 0}
     IsDecorator: 0
     InvertResult: 0
