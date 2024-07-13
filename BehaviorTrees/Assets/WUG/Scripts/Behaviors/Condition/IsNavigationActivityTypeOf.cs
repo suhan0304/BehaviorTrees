@@ -4,7 +4,8 @@ using WUG.BehaviorTreeVisualizer;
 public class IsNavigationActivityTypeOf : Condition {
     private NavigationActivity m_ActivityToCheckFor;
 
-    public IsNavigationActivityTypeOf(NavigationActivity activity) : base($"Is Navigation Activity {activity}?") {
+    public IsNavigationActivityTypeOf(NavigationActivity activity) : base($"Is Navigation Activity {activity}?") 
+    {
         m_ActivityToCheckFor = activity;
     }
 
