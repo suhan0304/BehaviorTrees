@@ -1,10 +1,11 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 using WUG.BehaviorTreeDemo;
 using WUG.BehaviorTreeVisualizer;
 
 public class NavigateToDestination : Node {
-    private Vector3 m_TargetDistination;
+    private Vector3 m_TargetDestination;
 
     public NavigateToDestination()
     {
@@ -22,7 +23,7 @@ public class NavigateToDestination : Node {
         }
 
         // Perform logic that should only run once
-        if (EvalutaionCount == 0)
+        if (EvaluationCount == 0)
         {
             // Get destination from GameManager
             GameObject destinationGO = GameManager.Instance.NPC.MyActivity == NavigationActivity.PickupItem ? GameManager.Instance.GetClosestItem() : GameManager.Instance.GetNextWayPoint();
@@ -38,10 +39,10 @@ public class NavigateToDestination : Node {
             NavMesh.SamplePosition(destinationGO.transform.position, out NavMeshHit hit, 1f, 1);
 
             // set the location for checks later
-            m_TargetDistination = hit.position;
+            m_TargetDestination = hit.position;
 
             // Set the destination on the NavMesh. This tells the AI to start moving to the new location.
-            GameManager.Instance.NPC.MyNavMesh.SetDestination(m_TargetDistination);
+            GameManager.Instance.NPC.MyNavMesh.SetDestination(m_TargetDestination);
             StatusReason = $"Starting to navigate to {destinationGO.transform.position}";
 
             // Return running, as we want to continue to have this node evaluate
@@ -49,12 +50,20 @@ public class NavigateToDestination : Node {
         }
 
         // Calculate how far the AI is from the destination
-        float distanceToTarget = Vector3.Distance(m_TargetDistination, GameManager.Instance.NPC.transform.position);
+        float distanceToTarget = Vector3.Distance(m_TargetDestination, GameManager.Instance.NPC.transform.position);
         
         // If the AI is within .25f then navigation will bec onsidered a success
         if (distanceToTarget < .25f) {
             StatusReason = $"Navigation ended. " +
-                $"\n - Evalutaion Count : {EvaluationCount}"
+                $"\n - Evalutaion Count : {EvaluationCount}. " +
+                $"\n - Target Destination : {m_TargetDestination}" +
+                $"\n - Distance to target : {Math.Round(distanceToTarget, 1)}";
+
+            return NodeStatus.Success;
         }
+
+        // Otherwise, the AI is still on the move
+        StatusReason = $"Distance to target : {distanceToTarget}";
+        return NodeStatus.Running;
     }
 }
